@@ -25,9 +25,21 @@ def amplitud_trans(v1,v2):
         result = np.array(np.dot(Vn2,Vn1))
         return (result)
     else:
+        return ("No cumple requerimientos")
+def prob_trans(v1,v2):
+    vect_1 = np.array(v1)
+    vect_2 = np.array(v2)
+    amp_trans = amplitud_trans(vect_1,vect_2)
+    if len(vect_1) == len(vect_2):
+        x,y = separar(amp_trans)
+        prob = (x**2) + (y**2)
+        return prob
+    else:
         return ("No cumple requerimientos") 
 if __name__ == '__main__':
     print(prob_sist_linea([2+1j,-3j,4],1))
     print("-----------------------------------------")
     print(amplitud_trans([3+8j,1j,1],[5j,6,2-1j]))
+    print("-----------------------------------------")
+    print(prob_trans([3+8j,1j,1],[5j,6,2-1j]))
     
